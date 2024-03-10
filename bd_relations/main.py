@@ -21,9 +21,9 @@ class Document(db.Model):
 
 @app.route("/create")
 def index():
-    user = User(full_name="Mike Tyson")
+    user = User(full_name="Moo Tonom")
     doc = Document(document_name="driver license",
-                   document_number="GG1112223334",
+                   document_number="ABCDEFG123112",
                    user=user)
 
     db.session.add(user)
