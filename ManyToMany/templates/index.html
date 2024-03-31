@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>University</title>
+</head>
+<body>
+<h2>Add Teacher</h2>
+<form action="/add_teacher" method="post">
+    <label for="t_name">Teacher name:</label>
+    <input type="text" id="t_name" name="name"><br>
+    <input type="submit" value="Add teacher">
+</form>
+
+<h2>Add Student</h2>
+<form action="/add_student" method="post">
+    <label for="s_name">Student name:</label>
+    <input type="text" id="s_name" name="name"><br>
+    <input type="submit" value="Add student">
+</form>
+
+<h2>Pair teacher and student</h2>
+<form action="/pair_teacher_student" method="post">
+    <label for="t_id">Teacher ID:</label>
+    <input type="text" id="t_id" name="teacher_id"><br>
+    <label for="s_id">Student ID:</label>
+    <input type="text" id="s_id" name="student_id"><br>
+    <input type="submit" value="Pair!">
+</form>
+</body>
+</html>
