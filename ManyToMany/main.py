@@ -25,13 +25,39 @@ class Student(db.Model):
     name = db.Column(db.String(50), nullable=False)
 
 
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
+    # return render_template("register.html")
+
+
+@app.route("/register", methods=["POST"])
+def add_user():
+    username = request.form["username"]
+    password = request.form["hashedPassword"]
+    new_user = User(username=username, password=password)
+    db.session.add(new_user)
+    db.session.commit()
+    return f"User {new_user.username} created successfully"
 
 
 @app.route("/add_teacher", methods=["POST"])
 def add_teacher():
+    username = request.form["username"]
+    password = request.form["hashedPassword"]
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        return "User not found"
+    if user.password != password:
+        print(user.password, "from form", password)
+        return f"Incorrect password"
+
     name = request.form["name"]
     new_teacher = Teacher(name=name)
     db.session.add(new_teacher)

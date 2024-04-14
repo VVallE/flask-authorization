@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+</head>
+<body>
+    <h2>Welcome, {{ username }}</h2>
+    <h3>Place your order:</h3>
+    <form action="/" method="post">
+        <input type="text" name="product" placeholder="Product Name" required><br>
+        <input type="number" name="quantity" placeholder="Quantity" required><br>
+        <button type="submit">Place Order</button>
+    </form>
+    <h3>Current Orders:</h3>
+    <ul>
+        {% for order in orders %}
+            <li>{{ order.username }} ordered {{ order.quantity }} of {{ order.product }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
