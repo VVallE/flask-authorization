@@ -31,5 +31,6 @@ def order():
         return redirect(url_for('index'))  # Если пользователь не авторизован, перенаправляем на страницу входа
 
 
+
 if __name__ == '__main__':
     app.run(debug=True)
